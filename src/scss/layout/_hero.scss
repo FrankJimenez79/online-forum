@@ -1,2 +1,80 @@
 @use "../abstracts/_variables" as *;
 @use "../abstracts/_mixins" as *;
+
+.hero {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 60px;
+  &_content {
+    &_title {
+      font-size: 70px;
+      font-family: $title-font;
+      color: $white;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 24px;
+    }
+    &_subtitle {
+      font-size: 22px;
+      color: $white;
+      font-weight: 400;
+      opacity: 0.5;
+      margin-bottom: 32px;
+    }
+    &_buttons {
+      margin-bottom: 110px;
+      ul {
+        @include reset-lists();
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        align-items: center;
+        max-width: 70%;
+      }
+      a.button {
+        @include buttons();
+        color: $white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 1s ease;
+      }
+      a.learn {
+        color: $white;
+
+        display: inline-block;
+        font-size: 16px;
+        position: relative;
+        transition: color 0.7s ease;
+
+        &:hover {
+          color: $pink;
+        }
+        &::after {
+          content: url(/img/icon-arrow.svg);
+          position: absolute;
+          right: -50px;
+          bottom: -14px;
+        }
+      }
+    }
+    &_categories {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      &_items {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        p {
+          color: $white;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.hero_image {
+  max-width: 100%;
+}
